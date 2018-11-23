@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="POST" action = "">
+	{{ form.hidden_tag() }}
+	<fieldset class = "form-group">
+				<legend class = "border-bottom mb-4">Search Fruits</legend>
+				<div class="form-group">
+					{{ form.search_filter.label(class = "form-control-label") }}
+					{{ form.search_filter(class="btn btn-info dropdown-toggle") }}
+				</div>
+				<div class="form-group">
+					{{ form.search_field.label(class="form-control-label") }}
+					{% if form.search_field.errors %}
+						{{ form.search_field(class="form-control form-control-lg is-invalid") }}	
+						<div class = "invalid-feedback">
+							{% for error in form.search_field.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.search_field(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.search_btn(class="btn btn-outline-info") }}
+				</div>
+	</fieldset>
+</form>
+{% if empty == '1' %}
+<h2>No Results</h2>
+{% endif %}
+{% for fruit in fruits %}
+<article class="media content-section">
+
+<div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{{ url_for('fruit_display',fruit_id=fruit.id) }}">{{ fruit.name }}</a>
+      <small class="text-muted">ID : {{ fruit.id }}</small>
+    </div>
+</div>
+</article>	
+{% endfor %}
+
+{% endblock content %}

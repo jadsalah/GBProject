@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for fruit in fruits %}
+<article class="media content-section">
+
+<div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{{ url_for('fruit_display',fruit_id=fruit.id) }}">{{ fruit.name }}</a>
+      <small class="text-muted">ID : {{ fruit.id }}</small>
+    </div>
+</div>
+</article>	
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="" method = "POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		{{ form.french.label(class = "form-control-label") }}
+		{{ form.french(class = "form-control-label") }}
+	<p>
+		{{ form.translate_btn.label(class = "form-control-label") }}
+		{{ form.translate_btn(class = "form-control-label") }}
+	</p>
+		{% for text in texts %}
+		<h4>{{ text }}</h4>
+		{% endfor %}
+</form>
+{% endblock content %}

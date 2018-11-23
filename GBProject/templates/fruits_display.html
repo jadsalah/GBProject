@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <h2 class="account-heading">{{ fruit.name }}</h2>
+      <p class="text-secondary">ID : {{ fruit.id }}</p>
+      <p class="text-secondary">Size : {{ fruit.size }}</p>
+      <p class="text-secondary">Currency : {{ fruit.currency }}</p>
+      <p class="text-secondary">Prohibited Country : {{ fruit.prohibited_country }}</p>
+      <p class="text-secondary">Metric : {{ fruit.metric }}</p>
+      <p class="text-secondary">Unit Price : {{ fruit.price_unit }}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseClients" aria-expanded="false" aria-controls="collapseClients">
+    Clients who can buy this fruit
+  </button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePrices" aria-expanded="false" aria-controls="collapsePrices">
+    Price Evolution
+  </button>
+  <div class="collapse" id="collapsePrices">
+  	<div class="card card-body">
+  		<img src="{{ url_for('static',filename=figname) }}">
+  	</div>
+  </div>
+  <div class="collapse" id="collapseClients">
+  	<div class="card card-body">
+  		{% for client in clients %}
+			<article class="media content-section">
+			<div class="media-body">
+    			<div class="article-metadata">
+      				<a class="mr-2" href="{{ url_for('clients_display',client_id=client.id) }}">{{ client.name }}</a>
+      				<small class="text-muted">ID : {{ client.id }}</small>
+    			</div>
+			</div>
+		</article>	
+{% endfor %}
+  	</div>
+  </div>
+</div>	
+
+
+
+
+{% endblock content %}

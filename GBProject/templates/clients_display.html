@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <h2 class="account-heading">{{ client.name }}</h2>
+      <p class="text-secondary">ID : {{ client.id }}</p>
+      <p class="text-secondary">Location : {{ client.country }} - {{ client.city }} </p>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit">
+    Edit Client Data
+  </button>
+   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseFruitsRank" aria-expanded="false" aria-controls="collapseFruitsRank">
+    Fruits Ranking
+  </button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseBasketMost" aria-expanded="false" aria-controls="collapseBasketMost">
+    Basket Evolution 1
+  </button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseBasketLeast" aria-expanded="false" aria-controls="collapseBasketLeast">
+    Basket Evolution 2
+  </button>
+
+  <div class="panel-collapse collapse" id="collapseBasketMost">
+    <div class="card card-body">
+      <img src="{{ url_for('static',filename=fignameMost) }}"/>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="collapseBasketLeast">
+    <div class="card card-body">
+      <img src="{{ url_for('static',filename=fignameLeast) }}"/>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="collapseFruitsRank">
+    <div class="card card-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price Euro</th>
+      <th scope="col">Price Dollar</th>
+      <th scope="col">Price Sterling</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      {% for (fruit,pe,pd,ps) in dat %}
+      <tr>
+        <td><a href="{{ url_for('fruit_display',fruit_id=fruit.id) }}">{{fruit.name}}</td>
+        
+        <td>{{ pe }}</td>
+        <td>{{ pd }}</td>
+        <td>{{ ps }}</td>
+    </tr>
+      {% endfor %}
+        </tbody>
+</table>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="collapseEdit">
+  	<div class="card card-body">
+    	<form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+        {{ form.name.label(class="form-control-label") }}
+          {% if form.name.errors %}
+            {{ form.name(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.name.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.name(class="form-control form-control-lg") }}
+          {% endif %}
+          </div>
+        </div>
+      </article>  
+
+        <article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+        {{ form.country.label(class="form-control-label") }}
+          {% if form.country.errors %}
+            {{ form.country(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.country.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.country(class="form-control form-control-lg") }}
+          {% endif %}
+          </div>
+        </div>
+      </article>
+
+
+<article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+        {{ form.city.label(class="form-control-label") }}
+          {% if form.city.errors %}
+            {{ form.city(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.city.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.city(class="form-control form-control-lg") }}
+          {% endif %}
+
+  </div>
+        </div>
+      </article>
+
+<article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+          {{ form.gender.label(class="form-control-label") }}
+          {% if form.gender.errors %}
+            {{ form.gender(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.gender.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.gender(class="form-control form-control-lg") }}
+          {% endif %}
+</div>
+        </div>
+      </article>
+
+
+<article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+          {{ form.currency_pref1.label(class="form-control-label") }}
+          {% if form.currency_pref1.errors %}
+            {{ form.currency_pref1(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.currency_pref1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.currency_pref1(class="form-control form-control-lg") }}
+          {% endif %}
+          {{ form.currency_pref2(class="form-control form-control-lg") }}
+          {{ form.currency_pref3(class="form-control form-control-lg") }}
+</div>
+        </div>
+      </article>
+
+<article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+          {{ form.size_pref1.label(class="form-control-label") }}
+          {% if form.size_pref1.errors %}
+            {{ form.size_pref1(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.size_pref1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.size_pref1(class="form-control form-control-lg") }}
+          {% endif %}
+          {{ form.size_pref2(class="form-control form-control-lg") }}
+          {{ form.size_pref3(class="form-control form-control-lg") }}
+</div>
+        </div>
+      </article>
+
+      <article class="media content-section">
+
+          <div class="media-body">
+            <div class="article-metadata">
+          {{ form.type_pref1.label(class="form-control-label") }}
+          {% if form.type_pref1.errors %}
+            {{ form.type_pref1(class="form-control form-control-lg is-invalid") }}  
+            <div class = "invalid-feedback">
+              {% for error in form.type_pref1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+          {{ form.type_pref1(class="form-control form-control-lg") }}
+          {% endif %}
+          {{ form.type_pref2(class="form-control form-control-lg") }}
+</div>
+        </div>
+      </article>
+      {{ form.update_btn(class="btn btn-outline-info") }}
+
+      </form>	
+  	</div>
+  </div>
+</div>	
+
+
+
+
+{% endblock content %}

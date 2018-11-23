@@ -1,0 +1,13 @@
+id,name,country,city,gender,fruit_currency_preference_1,fruit_currency_preference_2,fruit_currency_preference_3,fruit_size_preference_1,fruit_size_preference_2,fruit_size_preference_3,fruit_type_preference_1,fruit_type_preference_2
+1,Anne,Luxembourg,Luxembourg-ville,female,euro,sterling,dollar,medium,small,large,size,currency
+2,Benoit,Germany,Munich,male,dollar,euro,euro,small,medium,large,currency,size
+3,Charles,Germany,Berlin,male,sterling,euro,dollar,large,medium,small,currency,size
+4,Deborah,Germany,Berlin,female,euro,dollar,sterling,small,large,small,currency,size
+5,Elise,France,Paris,female,sterling,dollar,euro,small,small,large,currency,size
+6,Francois,Luxembourg,Luxembourg-ville,male,euro,sterling,dollar,medium,small,large,currency,size
+7,Gertrude,Luxembourg,Esch-sur-Alzette,female,dollar,sterling,euro,small,medium,large,size,currency
+8,Henri,France,Paris,male,sterling,euro,dollar,large,small,medium,currency,size
+9,Ives,France,Lyon,male,euro,euro,euro,medium,small,large,currency,size
+10,Jacques,Luxembourg,Esch-sur-Alzette,male,dollar,euro,sterling,large,medium,small,currency,size
+11,Konrad,Germany,Munich,male,sterling,sterling,euro,medium,medium,medium,size,currency
+12,Louise,France,Lyon,female,euro,sterling,dollar,medium,large,small,size,currency

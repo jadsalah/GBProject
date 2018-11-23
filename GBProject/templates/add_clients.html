@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Step 1</h2>
+Download the .csv file template form <a href="https://drive.google.com/open?id=1-ReOnbRU5E1gguWoEgcq0ih9OokNlEpo">Here</a>
+
+<h2>Step 2</h2>
+Edit The file and respect the template 
+
+<h2>Step 3</h2>
+Upload The File
+<div>
+	<form action="" method = "POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		{{ form.file_field.label(class = "form-control-label") }}
+		{% if form.file_field.errors %}
+						{{ form.file_field(class="form-control form-control-lg is-invalid") }}	
+						<div class = "invalid-feedback">
+							{% for error in form.file_field.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.file_field(class="form-control form-control-lg") }}
+					{% endif %}
+		{{ form.add_btn(class="btn btn-outline-info") }}
+	</form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<fieldset class = "form-group">
+	<legend class = "border-bottom mb-4">DataBase : </legend>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    	<div class="btn-group" role="group" aria-label="First group">
+	  		<a class="btn btn-primary" href="{{ url_for('reset_db') }}" role="button">Reset DataBase</a>
+	  	</div>
+	</div>
+</fieldset>
+
+<fieldset class = "form-group">
+	<legend class = "border-bottom mb-4">Fruits : </legend>
+	<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    	<div class="btn-group" role="group" aria-label="First group">
+	  		<a class="btn btn-primary" href="{{ url_for('fruits') }}" role="button">Search Fruits</a>
+	  		<a class="btn btn-primary" href="{{ url_for('add_fruits') }}" role="button">Add Fruits</a>
+	  		<a class="btn btn-primary" href="{{ url_for('showAllFruits') }}" role="button">Show All Fruits</a>
+	  	</div>
+	</div> 
+</fieldset>
+
+<fieldset class = "form-group">	
+	<legend class = "border-bottom mb-4">Clients : </legend>
+	<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    	<div class="btn-group" role="group" aria-label="First group">
+	  		<a class="btn btn-primary" href="{{ url_for('clients') }}" role="button">Search Clients</a>
+	  		<a class="btn btn-primary" href="{{ url_for('add_clients') }}" role="button">Add Clients</a>
+	  		<a class="btn btn-primary" href="{{ url_for('showAllClients') }}"  role="button">Show All Clients</a>
+	  	</div>
+	</div>
+</fieldset>  
+
+<fieldset class = "form-group">	
+	<legend class = "border-bottom mb-4">Stats : </legend>
+	<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    	<div class="btn-group" role="group" aria-label="First group">
+	  		<a class="btn btn-primary" href="{{ url_for('averages') }}" role="button">Averages</a>
+	  		<a class="btn btn-primary" href="{{ url_for('top5') }}" role="button">Top 5</a>
+	  	</div>
+	</div>
+</fieldset>  
+
+{% endblock content %}

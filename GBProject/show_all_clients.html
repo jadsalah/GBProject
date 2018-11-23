@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for client in clients %}
+<article class="media content-section">
+
+<div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{{ url_for('client_display',client_id=client.id) }}">{{ client.name }}</a>
+      <small class="text-muted">ID : {{ client.id }}</small>
+    </div>
+</div>
+</article>	
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseGender" aria-expanded="false" aria-controls="collapseGender">
+    Gender Based
+</button>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCountry" aria-expanded="false" aria-controls="collapseCountry">
+    Country Based
+</button>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCurrency" aria-expanded="false" aria-controls="collapseCurrency">
+    Currency Based
+</button>
+{{ js_resources4|indent(4)|safe }}
+{{ css_resources4|indent(4)|safe }}
+<div class="collapse" id="collapseGender">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		
+  		
+    	
+    	{{ scriptMale|indent(4)|safe }}
+  		{{ divMale|indent(4)|safe }}
+
+
+    	{{ scriptFemale|indent(4)|safe }}
+  		{{ divFemale|indent(4)|safe }}
+
+  		{% endif %}
+  	</div>
+</div>
+<div class="collapse" id="collapseCountry">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		
+    	{{ scriptFrance|indent(4)|safe }}
+  		{{ divFrance|indent(4)|safe }}
+
+  		
+    	{{ scriptGermany|indent(4)|safe }}
+  		{{ divGermany|indent(4)|safe }}
+
+    	{{ scriptLux|indent(4)|safe }}
+  		{{ divLux|indent(4)|safe }}
+  		{% endif %}
+  	</div>
+</div>
+<div class="collapse" id="collapseCurrency">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		
+  		{{ scriptEuro|indent(4)|safe }}
+  		{{ divEuro|indent(4)|safe }}
+  		
+    	{{ scriptDollar|indent(4)|safe }}
+  		{{ divDollar|indent(4)|safe }}
+
+    	{{ scriptSterling|indent(4)|safe }}
+  		{{ divSterling|indent(4)|safe }}
+  		{% endif %}
+  	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action = "">
+	{{ form.hidden_tag() }}
+	<fieldset class = "form-group">
+				<div class="form-group">
+					{{ form.start_month.label(class = "form-control-label") }} : 
+					{{ form.start_month(class="btn btn-info dropdown-toggle") }}
+				</div>
+				<div class="form-group">
+					{{ form.end_month.label(class="form-control-label") }} : 
+					{{ form.end_month(class="btn btn-info dropdown-toggle") }}
+				</div>
+				<div class="form-group">
+					{{ form.compute_btn(class="btn btn-outline-info") }}
+				</div>
+	</fieldset>
+</form>
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseGender" aria-expanded="false" aria-controls="collapseGender">
+    Gender Based
+</button>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCountry" aria-expanded="false" aria-controls="collapseCountry">
+    Country Based
+</button>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCurrency" aria-expanded="false" aria-controls="collapseCurrency">
+    Currency Based
+</button>
+
+<div class="collapse" id="collapseGender">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		{{ js_resources2|indent(4)|safe }}
+    	{{ css_resources2|indent(4)|safe }}
+    	{{ scriptGenders|indent(4)|safe }}
+  		{{ divGenders|indent(4)|safe }}
+  		{% endif %}
+  	</div>
+</div>
+<div class="collapse" id="collapseCountry">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		{{ js_resources|indent(4)|safe }}
+    	{{ css_resources|indent(4)|safe }}
+    	{{ scriptCountries|indent(4)|safe }}
+  		{{ divCountries|indent(4)|safe }}
+  		{% endif %}
+  	</div>
+</div>
+<div class="collapse" id="collapseCurrency">
+  	<div class="card card-body">
+  		{% if ready=='1' %}
+  		{{ js_resources3|indent(4)|safe }}
+    	{{ css_resources3|indent(4)|safe }}
+    	{{ scriptCurr|indent(4)|safe }}
+  		{{ divCurr|indent(4)|safe }}
+  		{% endif %}
+  	</div>
+</div>
+{% endblock content %}
